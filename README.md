@@ -1,83 +1,60 @@
-
-local _0x5265616479 = "✅ NHUB"
-local _0x4c6f6164 = function()
-    if not game:IsLoaded() then game.Loaded:Wait() end
-    task.wait(5)
-end; _0x4c6f6164()
-
-local _0x50 = game:GetService("\80\108\97\121\101\114\115")
-local _0x52 = game:GetService("\82\101\112\108\105\99\97\116\101\100\83\116\111\114\97\103\101")
-local _0x55 = game:GetService("\85\115\101\114\73\110\112\117\116\83\101\114\118\105\99\101")
-local _0x54 = game:GetService("\84\119\101\101\110\83\101\114\118\105\99\101")
-local _0x5253 = _0x52:WaitForChild("\82\101\109\111\116\101\115"):WaitForChild("\82\111\116\97\116\105\110\103\83\104\111\112")
-
-local _0x4142 = false
-local _0x49 = 300
-
-local _0x4974656d73 = {
-    {C = "\82\97\105\100", I = "\84\114\97\105\116\82\101\114\111\108\108\115", A = 3},
-    {C = "\71\111\108\100", I = "\71\114\101\101\110\69\115\115\101\110\99\101", A = 15},
-    {C = "\71\111\108\100", I = "\82\101\100\69\115\115\101\110\99\101", A = 3},
-    {C = "\71\111\108\100", I = "\80\117\114\112\108\101\69\115\115\101\110\99\101", A = 3},
-    {C = "\71\111\108\100", I = "\66\108\117\101\69\115\115\101\110\99\101", A = 3},
-    {C = "\71\111\108\100", I = "\83\117\112\101\114\83\116\97\116\67\104\105\112", A = 10},
-    {C = "\71\111\108\100", I = "\80\105\110\107\69\115\115\101\110\99\101", A = 3},
-    {C = "\71\111\108\100", I = "\82\97\105\110\98\111\119\69\115\115\101\110\99\101", A = 1},
-    {C = "\71\111\108\100", I = "\84\114\97\105\116\82\101\114\111\108\108\115", A = 3},
-    {C = "\71\111\108\100", I = "\89\101\108\108\111\119\69\115\115\101\110\99\101", A = 3},
-    {C = "\71\111\108\100", I = "\83\116\97\116\67\104\105\112", A = 10}
-}
-
-local _0x5347 = Instance.new("\83\99\114\101\101\110\71\117\105")
-_0x5347.Name = "\78\72\79\80\95\65\117\116\111"; _0x5347.Parent = game.CoreGui; _0x5347.ResetOnSpawn = false
-
-local _0x4d46 = Instance.new("\70\114\97\109\101", _0x5347)
-_0x4d46.Size = UDim2.new(0, 500, 0, 380); _0x4d46.Position = UDim2.new(0.5, -250, 0.5, -190)
-_0x4d46.BackgroundColor3 = Color3.fromRGB(0, 0, 0); _0x4d46.BackgroundTransparency = 0.35
-_0x4d46.Active = true; _0x4d46.Draggable = true; Instance.new("\85\73\67\111\114\110\101\114", _0x4d46).CornerRadius = UDim.new(0, 12)
-
-local _0x5374 = Instance.new("\85\73\83\116\114\111\107\101", _0x4d46)
-_0x5374.Color = Color3.fromRGB(0, 255, 120); _0x5374.Thickness = 1.5; _0x5374.Transparency = 0.4
-
-local _0x4346 = Instance.new("\70\114\97\109\101", _0x4d46)
-_0x4346.Position = UDim2.new(0, 140, 0, 45); _0x4346.Size = UDim2.new(1, -150, 1, -60)
-_0x4346.BackgroundTransparency = 1; _0x4346.Visible = false
-Instance.new("\85\73\76\105\115\116\76\97\121\111\117\116", _0x4346).Padding = UDim.new(0, 10)
-
-local function _0x4241()
-    for _, _0x76 in ipairs(_0x4974656d73) do
-        pcall(function() _0x5253:FireServer(_0x76.C, _0x76.I, _0x76.A) end)
-        task.wait(0.1)
-    end
-end
-
-local _0x4254 = Instance.new("\84\101\120\116\66\117\116\116\111\110", _0x4346)
-_0x4254.Size = UDim2.new(0.95, 0, 0, 40); _0x4254.Text = "⚡ BUY ALL ITEMS (ONCE) ⚡"
-_0x4254.BackgroundColor3 = Color3.fromRGB(0, 150, 80); _0x4254.Font = Enum.Font.GothamBold
-_0x4254.MouseButton1Click:Connect(_0x4241)
-
-local _0x4154 = Instance.new("\84\101\120\116\66\117\116\116\111\110", _0x4346)
-_0x4154.Size = UDim2.new(0.95, 0, 0, 40); _0x4154.Text = "Auto Buy: OFF"
-_0x4154.BackgroundColor3 = Color3.fromRGB(45, 45, 45); _0x4154.Font = Enum.Font.GothamBold
-
-_0x4154.MouseButton1Click:Connect(function()
-    _0x4142 = not _0x4142
-    _0x4154.Text = _0x4142 and "Auto Buy: ON" or "Auto Buy: OFF"
-    _0x4154.TextColor3 = _0x4142 and Color3.fromRGB(0, 255, 120) or Color3.new(1, 1, 1)
-end)
-
-task.spawn(function()
-    while true do
-        if _0x4142 then _0x4241() task.wait(_0x49) end
-        task.wait(1)
-    end
-end)
-
-_0x55.InputBegan:Connect(function(_0x69, _0x67)
-    if not _0x67 and _0x69.KeyCode == Enum.KeyCode.LeftControl then
-        _0x4d46.Visible = not _0x4d46.Visible
-    end
-end)
-
-print(_0x5265616479)
--- Rest of UI initialization suppressed for brevity...
+                                                                                 if  not game:IsLoaded 
+                                                                        () then game.Loaded:Wait();end task.wait(5);    
+                                                                    local Players=game:GetService("Players");local                
+                                                                ReplicatedStorage=game:GetService("ReplicatedStorage");local            
+                                                            UserInputService=game:GetService("UserInputService");local TweenService=game: 
+                                                          GetService("TweenService");local RotatingShop=ReplicatedStorage:WaitForChild(     
+                                                        "Remotes"):WaitForChild("RotatingShop");local AutoBuyEnabled=false;local AutoInterval 
+                                                      =300;local GoldShopItems={{Currency="Raid",Item="TraitRerolls",Amount=3},{Currency="Gold" 
+                                                    ,Item="GreenEssence",Amount=15},{Currency="Gold",Item="RedEssence",Amount=3},{Currency="Gold" 
+                                                  ,Item="PurpleEssence",Amount=3},{Currency="Gold",Item="BlueEssence",Amount=3},{Currency="Gold",   
+                                                  Item="SuperStatChip",Amount=10},{Currency="Gold",Item="PinkEssence",Amount=3},{Currency="Gold",Item 
+                                                ="RainbowEssence",Amount=1},{Currency="Gold",Item="TraitRerolls",Amount=3},{Currency="Gold",Item=       
+                                                "YellowEssence",Amount=3},{Currency="Gold",Item="StatChip",Amount=10}};local ScreenGui=Instance.new(      
+                                              "ScreenGui");ScreenGui.Name="NHUB_Auto_Version";ScreenGui.Parent=game.CoreGui;ScreenGui.ResetOnSpawn=false;   
+                                              local MainFrame=Instance.new("Frame",ScreenGui);MainFrame.Size=UDim2.new(0,500,0,380);MainFrame.Position=     
+                                            UDim2.new(0.5, -250,0.5, -190);MainFrame.BackgroundColor3=Color3.fromRGB(0,0,0);MainFrame.BackgroundTransparency= 
+                                            0.35;MainFrame.BorderSizePixel=0;MainFrame.Active=true;MainFrame.Draggable=true;MainFrame.Visible=true;Instance.new 
+                                          ("UICorner",MainFrame).CornerRadius=UDim.new(0,12);local MainStroke=Instance.new("UIStroke",MainFrame);MainStroke.Color 
+                                          =Color3.fromRGB(0,255,120);MainStroke.Thickness=1.5;MainStroke.Transparency=0.4;local TopBar=Instance.new("Frame",        
+                                          MainFrame);TopBar.Size=UDim2.new(1,0,0,40);TopBar.BackgroundTransparency=1;local Title=Instance.new("TextLabel",TopBar);    
+                                          Title.Size=UDim2.new(1, -50,1,0);Title.Position=UDim2.new(0,15,0,0);Title.Text=                                             
+                                        "NHUB <font color='#00FF78'>| SHOP MENU</font>";Title.RichText=true;Title.TextColor3=Color3.new(1,1,1);Title.Font=Enum.Font.    
+                                        GothamBold;Title.TextSize=16;Title.TextXAlignment=Enum.TextXAlignment --[[==============================]].Left;Title.            
+                                        BackgroundTransparency=1;local CloseBtn=Instance.new(       --[[============================================]]"TextButton",TopBar 
+                                        );CloseBtn.Size=UDim2.new(0,28,0,28);CloseBtn.Position= --[[======================================================]]UDim2.new(1, -  
+                                      35,0,6);CloseBtn.BackgroundColor3=Color3.fromRGB(255, --[[==========================================================]]75,75);CloseBtn.  
+                                      Text="×";CloseBtn.TextColor3=Color3.new(1,1,1);     --[[==============================================================]]CloseBtn.       
+                                      TextSize=20;Instance.new("UICorner",CloseBtn).      --[[================================================================]]CornerRadius=   
+                                      UDim.new(1,0);CloseBtn.MouseButton1Click:Connect(   --[[==================================================================]]function()    
+                                      MainFrame.Visible=false;end);local Sidebar=Instance --[[==================================================================]].new("Frame",     
+                                    MainFrame);Sidebar.Size=UDim2.new(0,120,1, -50);      --[[====================================================================]]Sidebar.      
+                    Position=UDim2.new(0,10,0,45);Sidebar.BackgroundTransparency=0.8;     --[[====================================================================]]Sidebar.        
+              BackgroundColor3=Color3.new(0,0,0);Instance.new("UICorner",Sidebar).        --[[======================================================================]]CornerRadius= 
+            UDim.new(0,8);local SidebarList=Instance.new("UIListLayout",Sidebar);         --[[======================================================================]]SidebarList.  
+          HorizontalAlignment=Enum.HorizontalAlignment.Center;SidebarList.Padding=UDim.   --[[======================================================================]]new(0,5);     
+        local ContentFrame=Instance.new("Frame",MainFrame);ContentFrame.Position=UDim2.   --[[======================================================================]]new(0,140,0,  
+        45);ContentFrame.Size=UDim2.new(1, -150,1, -60);ContentFrame.                     --[[======================================================================]]              
+      BackgroundTransparency=1;ContentFrame.Visible=false;local ContentList=Instance.new( --[[======================================================================]]              
+      "UIListLayout",ContentFrame);ContentList.Padding=UDim.new(0,10);ContentList.          --[[==================================================================]]                
+      HorizontalAlignment=Enum.HorizontalAlignment.Center;local MiniHolder=Instance.new(    --[[================================================================]]"Frame",ScreenGui 
+    );MiniHolder.Size=UDim2.new(0,60,0,60);MiniHolder.Position=UDim2.new(0.05,0,0.2,0);     --[[==============================================================]]MiniHolder.       
+    BackgroundTransparency=1;MiniHolder.Active=true;MiniHolder.Draggable=true;local OpenBtn=  --[[==========================================================]]Instance.new(       
+    "TextButton",MiniHolder);OpenBtn.Size=UDim2.new(1,0,1,0);OpenBtn.BackgroundColor3=Color3.   --[[====================================================]]fromRGB(25,25,25);      
+    OpenBtn.BackgroundTransparency=0.1;OpenBtn.Text="NHUB";OpenBtn.TextColor3=Color3.fromRGB(0,   --[[==============================================]]255,120);OpenBtn.Font=    
+    Enum.Font.LuckiestGuy;OpenBtn.TextSize=18;OpenBtn.TextXAlignment=Enum.TextXAlignment.Center;      --[[====================================]]OpenBtn.TextYAlignment=Enum.  
+    TextYAlignment.Center;Instance.new("UICorner",OpenBtn).CornerRadius=UDim.new(1,0);local RemoveBtn=    --[[========================]]Instance.new("TextButton",MiniHolder) 
+    ;RemoveBtn.Size=UDim2.new(0,22,0,22);RemoveBtn.Position=UDim2.new(1, -18,0, -4);RemoveBtn.BackgroundColor3=Color3.fromRGB(255,75,75);RemoveBtn.Text="×";RemoveBtn.      
+  TextColor3=Color3.new(1,1,1);RemoveBtn.TextSize=18;RemoveBtn.Font=Enum.Font.GothamBold;Instance.new("UICorner",RemoveBtn).CornerRadius=UDim.new(1,0);Instance.new(      
+  "UIStroke",RemoveBtn).Color=Color3.new(1,1,1);local function CreateBtn(text,color,parent,callback) local b=Instance.new("TextButton",parent);b.Size=UDim2.new(0.95,0, 
+  0,40);b.BackgroundColor3=color;b.BackgroundTransparency=0.2;b.Text=text;b.TextColor3=Color3.new(1,1,1);b.Font=Enum.Font.GothamBold;b.TextSize=12;Instance.new(          
+  "UICorner",b).CornerRadius=UDim.new(0,6);b.MouseButton1Click:Connect(callback);return b;end local function BuyAllItems() for _,v in ipairs(GoldShopItems) do pcall(     
+  function() RotatingShop:FireServer(v.Currency,v.Item,v.Amount);end);task.wait(0.1);end end CreateBtn("Gold Shop",Color3.fromRGB(30,30,30),Sidebar,function()            
+  ContentFrame.Visible= not ContentFrame.Visible;end);local BuyOnceBtn=CreateBtn("⚡ BUY ALL ITEMS (ONCE) ⚡",Color3.fromRGB(0,150,80),ContentFrame,function() BuyAllItems( 
+  );end);local AutoToggle=CreateBtn("Auto Buy Every 5 Mins: OFF",Color3.fromRGB(45,45,45),ContentFrame,function() end);AutoToggle.MouseButton1Click:Connect(function()    
+  AutoBuyEnabled= not AutoBuyEnabled;if AutoBuyEnabled then AutoToggle.Text="Auto Buy Every 5 Mins: ON";AutoToggle.TextColor3=Color3.fromRGB(0,255,120);AutoToggle.       
+  BackgroundColor3=Color3.fromRGB(0,60,30);else AutoToggle.Text="Auto Buy Every 5 Mins: OFF";AutoToggle.TextColor3=Color3.new(1,1,1);AutoToggle.BackgroundColor3=Color3.  
+  fromRGB(45,45,45);end end);task.spawn(function() while true do if AutoBuyEnabled then BuyAllItems();task.wait(AutoInterval);end task.wait(1);end end);OpenBtn.          
+  MouseButton1Click:Connect(function() MainFrame.Visible= not MainFrame.Visible;end);RemoveBtn.MouseButton1Click:Connect(function() ScreenGui:Destroy();end);             
+  UserInputService.InputBegan:Connect(function(i,g) if ( not g and (i.KeyCode==Enum.KeyCode.LeftControl)) then MainFrame.Visible= not MainFrame.Visible;end end);print(     
+  "✅ NHOP ");
